@@ -5,13 +5,13 @@ A Java ordered dictionary built on a hand-written **binary search tree**. Each k
 The project was built under one constraint: **every operation must work directly on the tree.** No query is answered by copying the nodes into an array or list and searching that. Lookups, neighbour queries and ordered traversal all come from the tree's shape and the BST ordering property.
 
 ```text
-Enter next command: get homework
-The word homework is not in the ordered dictionary.
-Preceding word:  flower
-Following word:  matrix
+Enter next command: get flower
+The word flower is not in the ordered dictionary.
+Preceding word:  fireworks
+Following word:  homework
 
 Enter next command: next computer 2
-computer flower matrix
+computer course cube
 ```
 
 ---
@@ -50,26 +50,49 @@ computer flower matrix
 
 ```text
 computer
-An electronic machine frequently used by Computer Science students
+An electronic machine frequently used by Computer Science students.
 computer
-computer.gif
+data/computer.gif
 ```
 
 ---
 
 ## How it works
 
-The sample input builds this tree. Circles are internal nodes holding a key; `·` marks an empty leaf.
+The sample input's 17 keys arrive in this order:
 
 ```text
-                    matrix
-                 /          \
-          computer            tree
-          /      \           /    \
-         ·      flower     ping    ·
-                /    \     /  \
-               ·      ·   ·    ·
+course homework nap roar tree programming loon cute computer
+spring exam matrix fireworks ohcanada cube dancing lightning
 ```
+
+Inserted in that order, they build this tree (`L` and `R` mark the left and
+right child; every child position not shown here holds an empty leaf node):
+
+```text
+course
+├─L computer
+└─R homework
+   ├─L cute
+   │  ├─L cube
+   │  └─R exam
+   │     ├─L dancing
+   │     └─R fireworks
+   └─R nap
+      ├─L loon
+      │  ├─L lightning
+      │  └─R matrix
+      └─R roar
+         ├─L programming
+         │  └─L ohcanada
+         └─R tree
+            └─L spring
+```
+
+17 internal nodes at height 6, and 18 empty leaves holding the positions
+between them. `course` arrived first, so it is the root; `nap` sits deep on
+the right because every key after it that is larger than `homework` had to
+pass through it.
 
 Each internal node stores a `Data` object, which pairs the key with a list of `MultimediaItem`s:
 
@@ -139,6 +162,17 @@ Why bother? Because the leaf where a search ends is the exact spot where the key
 
 - **Insertion is "fill the leaf in place."** No separate insertion pointer is needed, and inserting into an empty tree isn't a special case, because the root leaf simply becomes an internal node.
 - **Every loop has the same stopping rule**, `while (!node.isLeaf())`, with no scattered `null` checks.
+
+Inserting `course`, `homework` and `computer` gives the tree below, where `·`
+is an empty leaf node rather than a `null` link:
+
+```text
+          course
+         /      \
+   computer      homework
+    /    \        /    \
+   ·      ·      ·      ·
+```
 
 ### One search powers everything
 
