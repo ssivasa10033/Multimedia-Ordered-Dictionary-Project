@@ -67,7 +67,7 @@ public class BSTOrderedDictionary implements BSTOrderedDictionaryADT {
     public void remove(BSTNode r, String key) throws DictionaryException {
         BSTNode node = findNode(r, key);
         if (node.isLeaf()) {
-            throw new DictionaryException("No record in the ordered dictionary has key " + key + ".");
+            throw new DictionaryException("no entry with key " + key);
         }
         removeInternalNode(node);
     }
@@ -80,7 +80,7 @@ public class BSTOrderedDictionary implements BSTOrderedDictionaryADT {
     public void remove(BSTNode r, String key, int type) throws DictionaryException {
         BSTNode node = findNode(r, key);
         if (node.isLeaf()) {
-            throw new DictionaryException("No record in the ordered dictionary has key " + key + ".");
+            throw new DictionaryException("no entry with key " + key);
         }
 
         ArrayList<MultimediaItem> media = node.getData().getMedia();
