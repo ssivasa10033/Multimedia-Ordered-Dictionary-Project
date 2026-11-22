@@ -1,5 +1,5 @@
 course
-A series of talks or lessons, for example, CS2210.
+A series of talks or lessons, for example, a data structures course.
 homework
 Very enjoyable work that students need to complete outside the classroom.
 nap
@@ -7,7 +7,7 @@ Something that students should try to avoid doing in class.
 roar
 data/roar.wav
 tree
-The data structure preferred by CS2210 students.
+The data structure preferred by computer science students.
 tree
 data/tree.gif
 programming
@@ -18,6 +18,8 @@ cute
 data/cute.gif
 computer
 An electronic machine frequently used by Computer Science students.
+computer
+data/computer.gif
 spring
 data/spring.wav
 exam
