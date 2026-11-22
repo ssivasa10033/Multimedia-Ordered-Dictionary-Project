@@ -1,7 +1,7 @@
 # PRD: Multimedia Ordered Dictionary, v2
 
 **Owner:** Seon Sivasathan
-**Implementer:** Claude Code, working phase by phase from this document
+**Implementer:** Seon Sivasathan, working phase by phase from this document
 **Status:** Draft
 **Baseline:** tag `v1.0-assignment`: a working BST dictionary plus CLI that scored 10/10 on the course autograder
 
@@ -41,7 +41,7 @@ The audience is internship recruiters and interviewers, who will spend 2–5 min
 | Benchmarks | JMH | Correct JVM microbenchmarking (warm-up, forks) |
 | API | Javalin (lightweight) or Spring Boot | Pick Javalin unless there's a reason not to (see ADR-004) |
 | Analysis | Python 3.12, pandas, matplotlib, Jupyter | The data story |
-| Frontend (stretch) | React + TypeScript + Vite + Tailwind | Siv's existing stack |
+| Frontend (stretch) | React + TypeScript + Vite + Tailwind | Existing frontend stack |
 | CI | GitHub Actions | Build, test and coverage on every PR |
 
 ## 4. Target architecture
@@ -220,9 +220,9 @@ Each phase lists its **deliverables**, its **acceptance criteria** (definition o
 | AVL delete-rebalancing bugs | Property tests with the invariant checker after every operation, plus shrinking (jqwik) to get minimal failing cases |
 | Benchmarks that mislead (JIT, GC) | JMH only, ≥ 3 forks, warm-up iterations, error bars on the charts |
 | Scope creep stalls the project | Phases are independently shippable; Phase 6 is optional |
-| Academic integrity | Repo stays private until the course term ends and the course policy allows it; no course material is ever committed |
+| Academic integrity | No course material is ever committed: no handout, no instructor-provided classes, no autograder tests. Publication waits until the course policy allows it. |
 
-## 9. Instructions for Claude Code
+## 9. Implementation guidelines
 1. Read this PRD and the existing `src/` before writing code. Confirm the phase you are working on.
 2. Work on a branch named `phase-N-<slug>` and open a PR when done. The PR description lists the acceptance criteria and shows how each is met.
 3. Write tests alongside or before the implementation. Don't mark a phase done with failing or skipped tests.
